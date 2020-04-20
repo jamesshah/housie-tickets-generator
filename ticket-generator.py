@@ -18,6 +18,7 @@
 import random
 import numpy as np
 import sys
+from tabulate import tabulate
 
 
 def printTickets(n=1):
@@ -29,8 +30,7 @@ def printTickets(n=1):
         ticket = getTickets()
         tickets.append(ticket)
     for ticket in tickets:
-        print(ticket)
-        print("\n")
+        print(tabulate(ticket, tablefmt="fancy_grid", numalign="center"))
 
 
 def getTickets():
