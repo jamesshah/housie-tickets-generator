@@ -1,36 +1,21 @@
-"""
-    ------------------------------ DESCRIPTION -------------------------------
+#    ------------------------------ DESCRIPTION -------------------------------
 
-    A ticket consists of a random distribution of 15 unique numbers between 1-90 in a
-    3x9 matrix.
+#    A ticket consists of a random distribution of 15 unique numbers between 1-90 in a
+#    3x9 matrix.
 
-    RULE 1 -   Each row cannot have more than 5 numbers
-    RULE 2 -   Each column is assigned a range of numbers only:
-                1-10 can appear only in column 1
-                11-20 can appear only in column 2
-                81-90 can appear only in column 9
-    RULE 3 -   In a specific column, numbers must be arranged in ascending order
-                from top to bottom
-
-"""
+#    RULE 1 -   Each row cannot have more than 5 numbers
+#    RULE 2 -   Each column is assigned a range of numbers only:
+#                1-10 can appear only in column 1
+#                11-20 can appear only in column 2
+#                81-90 can appear only in column 9
+#    RULE 3 -   In a specific column, numbers must be arranged in ascending order
+#                from top to bottom
 
 
 import random
 import numpy as np
 import sys
 from tabulate import tabulate
-
-
-def printTickets(n=1):
-    """
-    Takes number of tickets as input and prints a list of inputted number of tickets by calling getTickets function
-    """
-    tickets = []
-    for i in range(int(n)):
-        ticket = getTickets()
-        tickets.append(ticket)
-    for ticket in tickets:
-        print(tabulate(ticket, tablefmt="fancy_grid", numalign="center"))
 
 
 def getTickets():
@@ -143,4 +128,10 @@ def getTickets():
 
 
 if __name__ == "__main__":
-    printTickets(sys.argv[1])
+    numberOfTickets = sys.argv[1]
+    tickets = []
+    for i in range(int(numberOfTickets)):
+        ticket = getTickets()
+        tickets.append(ticket)
+    for ticket in tickets:
+        print(tabulate(ticket, tablefmt="fancy_grid", numalign="center"))
